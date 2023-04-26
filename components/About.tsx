@@ -1,17 +1,33 @@
-import Skill from "./shared-ui/Skill"
+import { forwardRef } from "react";
+import Skill from "./shared-ui/Skill";
+import { ISkill } from "./shared-ui/Skill";
 
-const skillList: Array<string> = ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Next.js", "Sass", "Tailwind", "Jest", "React Testing Library", "Git/Github", "Java"]
+
+const skillList: Array<ISkill> = [
+    {name: "HTML", image: "HTML.svg"}, 
+    {name: "CSS", image: "CSS.svg"}, 
+    {name: "JavaScript", image: "JavaScript.svg"}, 
+    {name: "TypeScript", image: "TypeScript.svg"}, 
+    {name: "React.js", image: "React.svg"}, 
+    {name: "Next.js", image: "next.svg"}, 
+    {name: "Sass", image: "Sass.svg"}, 
+    {name: "Tailwind", image: "Tailwind.svg"}, 
+    {name: "Jest", image: "jest.svg"}, 
+    {name: "React Testing Library", image: "testing-library.svg"}, 
+    {name: "Git/Github", image: "Github.svg"}, 
+    {name: "Java", image: "Java.svg"}
+    ]
 
 
-export default function About() {
+export const About = forwardRef(function(props, ref: React.ForwardedRef<HTMLElement>) {
 
     return (
-        <section className={`min-h-fit h-screen flex flex-col`}>
+        <section ref={ref} className={`min-h-fit h-screen flex flex-col`}>
             <AboutMe />
             <Skills />
         </section>
     )
-}
+})
 
 function AboutMe() {
 
@@ -31,8 +47,8 @@ function Skills() {
         <div>
             <h3>Skills</h3>
             <div>
-                {skillList.map((skill: string) => (
-                    <Skill key={skill} skill={skill} />
+                {skillList.map((skill: ISkill) => (
+                    <Skill key={skill.name} skill={skill} />
                 ))}
             </div>
         </div>
