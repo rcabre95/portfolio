@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { sendEmail } from '@/lib/send-email';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState, useRef } from 'react';
 import { toast } from 'react-hot-toast';
 import { forwardRef } from 'react';
 import SuccessToast from './SuccessToast';
+import { Section } from "@/pages";
 
 export type FormData = {
     name: string;
@@ -12,16 +13,27 @@ export type FormData = {
     message: string;
 }
 
-export const Contact = forwardRef((props, ref: React.ForwardedRef<HTMLElement>) => {
+export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetStateAction<Section>> }, ref: React.ForwardedRef<HTMLElement>) => {
     const [loading, setLoading] = useState<boolean>(false);
     const { register, handleSubmit, formState: {errors} } = useForm();
 
-    // console.log(errors)
+    const contactFormRef = useRef<HTMLFormElement>(null)
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+                setSection("contact")
+            }, { threshold:0.5 }
+        );
+
+        observer.observe(contactFormRef.current!)
+        return () => { observer.disconnect() }
+    }, []);
 
     return (
         <section ref={ref} className={`h-screen`}>
             <h3>Contact</h3>
-            <form onSubmit={handleSubmit(async (data) => {
+            <form ref={contactFormRef} onSubmit={handleSubmit(async (data) => {
                 setLoading(true);
                 let email = await sendEmail(data.name, data.email, data.subject, data.message);
                 console.log(email.status)

@@ -1,4 +1,4 @@
-export default function Header({ homeRef, aboutRef, projectsRef, contactRef }: { aboutRef: any, homeRef: any, projectsRef: any, contactRef: any }) {
+export default function Header({ section, homeRef, aboutRef, projectsRef, contactRef }: { section: string, aboutRef: any, homeRef: any, projectsRef: any, contactRef: any }) {
     
     const scrollToHome = () => {
         homeRef.current.scrollIntoView({ behavior: "smooth" });
@@ -18,10 +18,10 @@ export default function Header({ homeRef, aboutRef, projectsRef, contactRef }: {
 
     return (
         <div className={`h-16 sticky top-0 flex justify-around font-bold md:justify-end bg-white z-10`}>
-            <button onClick={scrollToHome} className={`md:mx-12`}>Home</button>
-            <button onClick={scrollToAbout} className={`md:mx-12`}>About</button>
-            <button onClick={scrollToProjects} className={`md:mx-12`}>Projects</button>
-            <button onClick={scrollToContact} className={`md:mx-12`}>Contact</button>
+            <button onClick={scrollToHome} className={`md:mx-12 ${section === "home" ? "underline" : null}`}>Home</button>
+            <button onClick={scrollToAbout} className={`md:mx-12 ${section === "about" ? "underline" : null}`}>About</button>
+            <button onClick={scrollToProjects} className={`md:mx-12 ${section === "projects" ? "underline" : null}`}>Projects</button>
+            <button onClick={scrollToContact} className={`md:mx-12 ${section === "contact" ? "underline" : null}`}>Contact</button>
         </div>
     )
 }

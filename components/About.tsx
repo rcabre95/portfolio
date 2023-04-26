@@ -1,6 +1,7 @@
-import { forwardRef } from "react";
+import { Dispatch, SetStateAction, forwardRef, useEffect, useRef } from "react";
 import Skill from "./shared-ui/Skill";
 import { ISkill } from "./shared-ui/Skill";
+import { Section } from "@/pages";
 
 
 const skillList: Array<ISkill> = [
@@ -19,20 +20,31 @@ const skillList: Array<ISkill> = [
     ]
 
 
-export const About = forwardRef(function(props, ref: React.ForwardedRef<HTMLElement>) {
+export const About = forwardRef(function({ setSection }: { setSection: Dispatch<SetStateAction<Section>> }, ref: React.ForwardedRef<HTMLElement>) {
 
     return (
         <section ref={ref} className={`min-h-fit h-screen flex flex-col`}>
-            <AboutMe />
+            <AboutMe setSection={setSection} />
             <Skills />
         </section>
     )
 })
 
-function AboutMe() {
+function AboutMe({setSection}: { setSection: Dispatch<SetStateAction<Section>> }) {
+    const aboutMeRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            setSection("about")
+        }, {
+            threshold: 0.7
+        })
+        observer.observe(aboutMeRef.current!)
+        return () => observer.disconnect()
+    }, [])
 
     return (
-        <div>
+        <div ref={aboutMeRef}>
             <h3>About Me</h3>
             <p>
                 I am a self-taught front end engineer, with a passion for building and innovation. Fully committed to the philosophy of life-long learning, I am constantly learning new things, and eagerly applying those things to a new project, only to start the process again. For me, it&apos;s the endless possibilities of web development and technology that drives my excitement and passion. Whether on a team, or working solo, I always bring that passion to whatever projects I am a part of. When I&apos;m not at my computer I like to spend my time reading, strength training, playing guitar, or playing videogames.

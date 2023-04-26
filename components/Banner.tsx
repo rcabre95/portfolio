@@ -1,12 +1,24 @@
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Section } from "@/pages";
 
-export default function Banner({ mainRef }: { mainRef: any }) {
+export default function Banner({ mainRef, setSection }: { mainRef: any, setSection: Dispatch<SetStateAction<Section>> }) {
+    const bannerRef = useRef<HTMLElement>(null);
 
     const scrollToMain = () => {
         mainRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
+    useEffect(() => {
+        const observer = new IntersectionObserver((entry) => {
+            setSection("home")
+        }, { threshold: 0.9 })
+        observer.observe(bannerRef.current!)
+
+        return () => { observer.disconnect() }
+    }, [])
+
     return (
-        <section className={`h-screen w-screen flex flex-col justify-center items-center`}>
+        <section ref={bannerRef} className={`h-screen w-screen flex flex-col justify-center items-center`}>
             <div className="text-4xl md:text-5xl text-center mb-2">
                 <h1>Hi, I&apos;m <span className="text-slate-400">Raphael</span>.<br />I&apos;m a front end web developer.</h1>
             </div>
