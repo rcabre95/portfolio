@@ -31,9 +31,14 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
     }, []);
 
     return (
-        <section ref={ref} className={`h-screen`}>
-            <h3>Contact</h3>
-            <form ref={contactFormRef} onSubmit={handleSubmit(async (data) => {
+        <section ref={ref} className={`h-fit scroll-mt-16`}>
+            <h3 className={`text-3xl font-extrabold flex justify-center items-center mb-8`}>Contact</h3>
+            <div className={`w-full flex justify-center items-center`}>
+                <p className={`text-sm w-4/6 max-w-2xl mb-2 text-center`}>Want to work together? Have any Questions? Want to tell me a joke? Use the form below to get in touch!</p>
+            </div>
+            <form className={`flex flex-col bg-green-300 justify-center items-center`}
+            ref={contactFormRef}
+            onSubmit={handleSubmit(async (data) => {
                 setLoading(true);
                 let email = await sendEmail(data.name, data.email, data.subject, data.message);
                 console.log(email.status)
@@ -42,11 +47,12 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                         <SuccessToast t={t} />
                     ))
                 }
-            })} className={``}>
+            })}>
 
                 {/* Name Input */}
-                <div>
-                    <input 
+                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
+                    <input
+                        className={`w-full h-full rounded-sm p-2`}
                         {...register("name",
                             {
                                 required: "You must input your name.",
@@ -65,8 +71,9 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                 </div>
 
                 {/* Email Input */}
-                <div>
+                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
                     <input
+                        className={`w-full h-full rounded-sm p-2`}
                         {...register("email",
                             {
                                 required: "You must input your Email.",
@@ -83,8 +90,9 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                 </div>
 
                 {/* Subject Input */}
-                <div>
+                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
                     <input
+                        className={`w-full h-full rounded-sm p-2`}
                         {...register("subject",
                             {
                                 required: "Your email needs a subject.",
@@ -106,8 +114,9 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                 </div>
                 
                 {/* Message Input */}
-                <div>
+                <div className={`mt-1 mb-4 h-40 w-4/6 max-w-2xl`}>
                     <textarea
+                        className={`w-full h-full rounded-sm p-2 resize-none`}
                         {...register("message",
                             {
                                 required: "You must have something to say, right?",
@@ -128,7 +137,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                     </p>
                 </div>
 
-                <button disabled={loading} type="submit">Submit</button>
+                <button className={`w-4/6 max-w-2xl h-10 rounded-sm bg-purple-300 mb-12`} disabled={loading} type="submit">Submit</button>
             </form>
         </section>
     )
