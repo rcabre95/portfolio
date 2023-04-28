@@ -3,7 +3,7 @@ import axios from 'axios';
 export async function sendEmail(name: string, email: string, subject: string, message: string) {
     return axios({
         method: 'post',
-        url: '/api/send-mail',
+        url: `${process.env.NEXT_PUBLIC_HOME_URL}/api/send-mail`,
         data: {
             name: name,
             email: email,
