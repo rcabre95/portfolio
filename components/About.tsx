@@ -41,7 +41,7 @@ function AboutMe({setSection}: { setSection: Dispatch<SetStateAction<Section>> }
         const observer = new IntersectionObserver(([entry]) => {
             setSection("about")
         }, {
-            threshold: 0.7
+            threshold: 0.5
         })
         observer.observe(aboutMeRef.current!)
         return () => observer.disconnect()

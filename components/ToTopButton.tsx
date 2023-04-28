@@ -7,7 +7,7 @@ export default function ToTopButton({ homeRef }: { homeRef: any }) {
     }
 
     return (
-        <div className={`absolute z-10 bottom-20 h-fit w-full flex justify-center items-center`}>
+        <div className={`absolute z-10 bottom-24 h-fit w-full flex justify-center items-center`}>
             <button className={`rounded-full overflow-hidden h-10 w-10`} onClick={scrollHome}>
             <Image fill src={`/static/assets/up-arrow.svg`} alt={`up arrow svg`} />
             </button>

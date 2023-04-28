@@ -23,7 +23,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
                 setSection("contact")
-            }, { threshold:0.5 }
+            }, { threshold: 0.5 }
         );
 
         observer.observe(contactFormRef.current!)
@@ -31,12 +31,13 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
     }, []);
 
     return (
-        <section ref={ref} className={`h-fit scroll-mt-16`}>
+        <section ref={ref} className={`h-fit scroll-mt-16 bg-gradient-to-b from-myBlue from-95%
+        to-green-300 to-100%`}>
             <h3 className={`text-3xl font-extrabold flex justify-center items-center mb-8`}>Contact</h3>
             <div className={`w-full flex justify-center items-center`}>
                 <p className={`text-sm w-4/6 max-w-2xl mb-2 text-center`}>Want to work together? Have any Questions? Want to tell me a joke? Use the form below to get in touch!</p>
             </div>
-            <form className={`flex flex-col bg-green-300 justify-center items-center`}
+            <form className={`flex flex-col justify-center items-center`}
             ref={contactFormRef}
             onSubmit={handleSubmit(async (data) => {
                 setLoading(true);
@@ -50,9 +51,9 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
             })}>
 
                 {/* Name Input */}
-                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
+                <div className={` my-1 h-fit w-4/6 max-w-2xl`}>
                     <input
-                        className={`w-full h-full rounded-sm p-2`}
+                        className={`w-full h-10 rounded-sm p-2`}
                         {...register("name",
                             {
                                 required: "You must input your name.",
@@ -65,15 +66,15 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                         type="text"
                         placeholder="Name"
                     />
-                    <p className={`${errors.name ? "block" : "hidden"}`}>
+                    <p className={`${errors.name ? "block" : "hidden"} text-xs text-red-600`}>
                         {errors.name?.message?.toString()}
                     </p>
                 </div>
 
                 {/* Email Input */}
-                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
+                <div className={` my-1 h-fit w-4/6 max-w-2xl`}>
                     <input
-                        className={`w-full h-full rounded-sm p-2`}
+                        className={`w-full h-10 rounded-sm p-2`}
                         {...register("email",
                             {
                                 required: "You must input your Email.",
@@ -84,15 +85,15 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                             })}
                         type="text"
                         placeholder="Email" />
-                    <p className={`${errors.email ? "block" : "hidden"}`}>
+                    <p className={`${errors.email ? "block" : "hidden"} text-xs text-red-600`}>
                         {errors.email?.message?.toString()}
                     </p>
                 </div>
 
                 {/* Subject Input */}
-                <div className={` my-1 h-10 w-4/6 max-w-2xl`}>
+                <div className={`my-1 h-fit w-4/6 max-w-2xl`}>
                     <input
-                        className={`w-full h-full rounded-sm p-2`}
+                        className={`w-full h-10 rounded-sm p-2`}
                         {...register("subject",
                             {
                                 required: "Your email needs a subject.",
@@ -108,15 +109,15 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                         type="text"
                         placeholder="Subject"
                     />
-                    <p className={`${errors.subject ? "block" : "hidden"}`}>
+                    <p className={`${errors.subject ? "block" : "hidden"} text-xs text-red-600`}>
                         {errors.subject?.message?.toString()}
                     </p>
                 </div>
                 
                 {/* Message Input */}
-                <div className={`mt-1 mb-4 h-40 w-4/6 max-w-2xl`}>
+                <div className={`mt-1 mb-4 h-fit w-4/6 max-w-2xl`}>
                     <textarea
-                        className={`w-full h-full rounded-sm p-2 resize-none`}
+                        className={`w-full h-40 rounded-sm p-2 resize-none`}
                         {...register("message",
                             {
                                 required: "You must have something to say, right?",
@@ -132,12 +133,12 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                         rows={8}
                         placeholder="Message"
                     />
-                    <p className={`${errors.message ? "block" : "hidden"}`}>
+                    <p className={`${errors.message ? "block" : "hidden"} text-xs text-red-600`}>
                         {errors.message?.message?.toString()}
                     </p>
                 </div>
 
-                <button className={`w-4/6 max-w-2xl h-10 rounded-sm bg-purple-300 mb-12`} disabled={loading} type="submit">Submit</button>
+                <button className={`w-4/6 max-w-2xl h-10 rounded-sm mb-16`} disabled={loading} type="submit">Submit</button>
             </form>
         </section>
     )
