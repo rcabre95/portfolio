@@ -46,6 +46,7 @@ export const About = forwardRef(function({ setSection }: { setSection: Dispatch<
         </section>
     )
 })
+About.displayName = "About"
 
 function AboutMe() {
     

@@ -145,3 +145,4 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
         </section>
     )
 })
+Contact.displayName = "Contact"

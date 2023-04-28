@@ -56,3 +56,4 @@ const MainContent = forwardRef(({ section, homeRef, setSection }: { section: str
     </div>
   )
 })
+MainContent.displayName = "MainContent"

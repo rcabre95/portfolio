@@ -33,3 +33,4 @@ export const Projects = forwardRef(({ setSection }: { setSection: Dispatch<SetSt
         </section>
     )
 })
+Projects.displayName = "Projects"
