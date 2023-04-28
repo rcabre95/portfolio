@@ -20,7 +20,7 @@ export const Projects = forwardRef(({ setSection }: { setSection: Dispatch<SetSt
         )
         observer.observe(projectsRef.current!)
         return () => observer.disconnect()
-    }, []);
+    }, [setSection]);
 
     return (
         <section ref={ref} className={`h-fit w-full flex flex-col items-center bg-myBlue scroll-mt-16`}>

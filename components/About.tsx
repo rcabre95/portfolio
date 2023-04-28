@@ -34,7 +34,7 @@ export const About = forwardRef(function({ setSection }: { setSection: Dispatch<
         })
         observer.observe(aboutTitleRef.current!)
         return () => observer.disconnect()
-    }, [])
+    }, [setSection])
 
     return (
         <section ref={ref} className={`h-fit bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>

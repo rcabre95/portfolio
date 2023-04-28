@@ -26,7 +26,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
 
         observer.observe(contactFormRef.current!)
         return () => { observer.disconnect() }
-    }, []);
+    }, [setSection]);
 
     return (
         <section ref={ref} className={`z-30  h-fit scroll-mt-16 bg-gradient-to-b from-myBlue from-95%

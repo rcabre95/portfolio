@@ -16,7 +16,7 @@ export default function Banner({ aboutRef, setSection }: { aboutRef: any, setSec
         observer.observe(bannerRef.current!)
 
         return () => { observer.disconnect() }
-    }, [])
+    }, [setSection])
 
     return (
         <section ref={bannerRef} className={`h-screen w-screen flex flex-col justify-center items-center bg-myBlue relative`}>
