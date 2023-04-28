@@ -25,8 +25,8 @@ export const About = forwardRef(function({ setSection }: { setSection: Dispatch<
 
     return (
         <section ref={ref} className={`h-fit pt-16 bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
-            <h3 className={`text-3xl font-extrabold flex justify-center items-center`}>About</h3>
-            <div className={`flex flex-col flex-1 md:flex-row md:justify-around mt-12`}>
+            <h3 className={`z-20 text-3xl font-extrabold flex justify-center items-center`}>About</h3>
+            <div className={`z-20 flex flex-col flex-1 md:flex-row md:justify-around mt-12`}>
                 <AboutMe setSection={setSection} />
                 <Skills />
             </div>
