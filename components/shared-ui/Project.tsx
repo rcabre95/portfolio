@@ -26,11 +26,11 @@ export default function Project({ project, idx }: { project: IProject, idx: numb
                 </div>
                 <div className={`flex flex-row w-full md:w-full justify-around items-center h-16 `}>
                     { link.length === 0 ? null : 
-                    <Link target="_blank" href={link} className={`shadow-md w-36 h-8 mx-4 rounded-md border-myGray flex justify-center items-center border border-myGrey text-myBrown font-extrabold`}>
+                    <Link target="_blank" href={link} className={`bg-myBlue shadow-md w-36 h-8 mx-4 rounded-md flex justify-center items-center transition-colors border-2 border-myBrown text-myGrey hover:text-myBlue hover:bg-myBrown font-bold`}>
                         Live App
                     </Link> 
                     }
-                    <Link target="_blank" href={gitLink} className={`shadow-md w-36 h-8 mx-4 rounded-md flex justify-center items-center border-2 border-myBrown text-myGrey`}>
+                    <Link target="_blank" href={gitLink} className={`font-bold shadow-md w-36 h-8 mx-4 rounded-md flex justify-center items-center border-2 border-myBrown text-myGrey hover:text-myBlue hover:border-myBlue hover:bg-myGrey transition-colors`}>
                         Code
                     </Link>
                 </div>
