@@ -17,7 +17,10 @@ const skillList: Array<ISkill> = [
     {name: "Jest", image: "jest.svg"}, 
     {name: "React Testing Library", image: "testing-library.svg"}, 
     {name: "Git/Github", image: "Github.svg"}, 
-    {name: "Java", image: "Java.svg"}
+    {name: "Java", image: "Java.svg"},
+    {name: "Node.js", image: "nodejs.svg"},
+    {name: "Mongo DB", image: "MongoDB.svg"},
+    {name: "Express.js", image: "expressjs.svg"}
     ]
 
 
@@ -35,7 +38,7 @@ export const About = forwardRef(function({ setSection }: { setSection: Dispatch<
 
     return (
         <section ref={ref} className={`h-fit bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
-            <h3 ref={aboutTitleRef} className={`z-20 text-3xl font-extrabold flex justify-center items-center text-myGrey`}>About</h3>
+            <h3 ref={aboutTitleRef} className={`z-20 text-3xl font-extrabold flex justify-center items-center`}>About</h3>
             <div className={`z-20 flex flex-col flex-1 md:flex-row md:justify-around mt-12`}>
                 <AboutMe />
                 <Skills />

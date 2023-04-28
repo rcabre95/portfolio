@@ -31,7 +31,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
     return (
         <section ref={ref} className={`z-30  h-fit scroll-mt-16 bg-gradient-to-b from-myBlue from-95%
         to-green-300 to-100% pt-12`}>
-            <h3 className={`z-30 text-3xl font-extrabold flex justify-center items-center mb-8 text-myGrey`}>Contact</h3>
+            <h3 className={`z-30 text-3xl font-extrabold flex justify-center items-center mb-8`}>Contact</h3>
             <div className={`z-30  w-full flex justify-center items-center`}>
                 <p className={`z-30 text-sm w-4/6 max-w-2xl mb-2 text-center`}>Want to work together? Have any Questions? Want to tell me a joke? Use the form below to get in touch!</p>
             </div>

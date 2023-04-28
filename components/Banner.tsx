@@ -20,7 +20,7 @@ export default function Banner({ aboutRef, setSection }: { aboutRef: any, setSec
 
     return (
         <section ref={bannerRef} className={`h-screen w-screen flex flex-col justify-center items-center bg-myBlue relative`}>
-            <div className="z-20 text-4xl md:text-5xl text-center mb-2 text-myGrey">
+            <div className="z-20 text-4xl md:text-5xl text-center mb-2">
                 <h1>Hi, I&apos;m <span className="text-myBrown">Raphael</span>.<br />I&apos;m a front end web developer.</h1>
             </div>
             <button onClick={scrollToMain} className="z-20 w-fit h-10 border-2 border-slate-400 flex justify-center items-center p-2 rounded-md">
