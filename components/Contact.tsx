@@ -136,7 +136,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                     </p>
                 </div>
 
-                <button className={`w-4/6 max-w-2xl h-10 rounded-sm mb-16 text-myGrey border border-myBrown font-extrabold bg-white`} disabled={loading} type="submit">Submit</button>
+                <button className={`w-4/6 max-w-2xl h-10 rounded-sm mb-16 text-myGrey border border-myBrown font-extrabold bg-white md:mb-20`} disabled={loading} type="submit">Submit</button>
             </form>
         </section>
     )

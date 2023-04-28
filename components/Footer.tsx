@@ -14,7 +14,7 @@ export default function Footer() {
             </div>
             <div className={`flex flex-col justify-center items-center text-myBlue`}>
                 <p className="text-sm">Raphael Cabrera &copy; 2023</p>
-                <p className="text-xs font-extrabold">The sun is beamin</p>
+                <p className="text-xs font-extrabold">The sun is beamin&apos;</p>
             </div>
             
         </footer>

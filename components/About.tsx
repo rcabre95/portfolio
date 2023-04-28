@@ -24,7 +24,7 @@ const skillList: Array<ISkill> = [
 export const About = forwardRef(function({ setSection }: { setSection: Dispatch<SetStateAction<Section>> }, ref: React.ForwardedRef<HTMLElement>) {
 
     return (
-        <section ref={ref} className={`h-fit -mt-16 pt-16 bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
+        <section ref={ref} className={`h-fit pt-16 bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
             <h3 className={`text-3xl font-extrabold flex justify-center items-center`}>About</h3>
             <div className={`flex flex-col flex-1 md:flex-row md:justify-around mt-12`}>
                 <AboutMe setSection={setSection} />
