@@ -7,14 +7,14 @@ import { Contact } from "@/components/Contact"
 import ToTopButton from "@/components/ToTopButton"
 import Footer from "@/components/Footer"
 import MetaTags from "@/components/shared-ui/MetaTags"
-import React, { useRef, useState, forwardRef, Dispatch, SetStateAction } from "react"
+import { useRef, useState, forwardRef, ForwardedRef, Dispatch, SetStateAction } from "react"
 
 export type Section = "home" | "about" | "projects" | "contact";
 
 export default function Home() {
 
-  const mainRef: React.ForwardedRef<HTMLDivElement> = useRef<HTMLDivElement>(null);
-  const homeRef: React.ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
+  const mainRef: ForwardedRef<HTMLDivElement> = useRef<HTMLDivElement>(null);
+  const homeRef: ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
   
   const [section, setSection] = useState<Section>("home");
 
@@ -40,11 +40,11 @@ export default function Home() {
   )
 }
 
-const MainContent = forwardRef(({ section, homeRef, setSection }: { section: string, homeRef: React.ForwardedRef<HTMLElement>, setSection: Dispatch<SetStateAction<Section>> }, ref: React.ForwardedRef<HTMLDivElement>) => {
+const MainContent = forwardRef(({ section, homeRef, setSection }: { section: string, homeRef: ForwardedRef<HTMLElement>, setSection: Dispatch<SetStateAction<Section>> }, ref: ForwardedRef<HTMLDivElement>) => {
 
-  const aboutRef: React.ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
-  const projectsRef: React.ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
-  const contactRef: React.ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
+  const aboutRef: ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
+  const projectsRef: ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
+  const contactRef: ForwardedRef<HTMLElement> = useRef<HTMLElement>(null);
 
   return (
     <div ref={ref} className={`h-fit relative`}>

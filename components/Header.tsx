@@ -18,10 +18,10 @@ export default function Header({ section, homeRef, aboutRef, projectsRef, contac
 
     return (
         <div className={`h-16 bg-myBlue w-full sticky top-0 bg-opacity-90 shadow-sm backdrop-filter backdrop-blur-sm flex justify-around font-bold md:justify-end z-30`}>
-            <button onClick={scrollToHome} className={`md:mx-12 ${section === "home" ? "underline" : null}`}>Home</button>
-            <button onClick={scrollToAbout} className={`md:mx-12 ${section === "about" ? "underline" : null}`}>About</button>
-            <button onClick={scrollToProjects} className={`md:mx-12 ${section === "projects" ? "underline" : null}`}>Projects</button>
-            <button onClick={scrollToContact} className={`md:mx-12 ${section === "contact" ? "underline" : null}`}>Contact</button>
+            <button onClick={scrollToHome} className={`md:mx-12 transition-colors ${section === "home" ? "text-yellow-400" : "text-myGrey"}`}>Home</button>
+            <button onClick={scrollToAbout} className={`md:mx-12 transition-colors ${section === "about" ? "text-yellow-400" : "text-myGrey"}`}>About</button>
+            <button onClick={scrollToProjects} className={`md:mx-12 transition-colors ${section === "projects" ? "text-yellow-400" : "text-myGrey"}`}>Projects</button>
+            <button onClick={scrollToContact} className={`md:mx-12 transition-colors ${section === "contact" ? "text-yellow-400" : "text-myGrey"}`}>Contact</button>
         </div>
     )
 }

@@ -22,33 +22,34 @@ const skillList: Array<ISkill> = [
 
 
 export const About = forwardRef(function({ setSection }: { setSection: Dispatch<SetStateAction<Section>> }, ref: React.ForwardedRef<HTMLElement>) {
+    const aboutTitleRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            setSection("about")
+        }, {
+            threshold: 1
+        })
+        observer.observe(aboutTitleRef.current!)
+        return () => observer.disconnect()
+    }, [])
 
     return (
-        <section ref={ref} className={`h-fit pt-16 bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
-            <h3 className={`z-20 text-3xl font-extrabold flex justify-center items-center`}>About</h3>
+        <section ref={ref} className={`h-fit bg-myBlue min-h-screen flex flex-col px-4 pb-12 scroll-mt-16`}>
+            <h3 ref={aboutTitleRef} className={`z-20 text-3xl font-extrabold flex justify-center items-center text-myGrey`}>About</h3>
             <div className={`z-20 flex flex-col flex-1 md:flex-row md:justify-around mt-12`}>
-                <AboutMe setSection={setSection} />
+                <AboutMe />
                 <Skills />
             </div>
         </section>
     )
 })
 
-function AboutMe({setSection}: { setSection: Dispatch<SetStateAction<Section>> }) {
-    const aboutMeRef = useRef<HTMLDivElement>(null);
+function AboutMe() {
+    
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            setSection("about")
-        }, {
-            threshold: 0.5
-        })
-        observer.observe(aboutMeRef.current!)
-        return () => observer.disconnect()
-    }, [])
 
     return (
-        <div className={`flex flex-col justify-center items-center md:w-1/2`} ref={aboutMeRef}>
+        <div className={`flex flex-col justify-center items-center md:w-1/2`}>
             <div className={`h-64 w-64 md:h-72 md:w-72 relative mb-6 border-2 border-myBrown rounded-full`}>
                 <Image fill src={`/static/assets/profile.png`} alt="profile image" />
             </div>
