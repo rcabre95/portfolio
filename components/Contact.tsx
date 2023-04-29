@@ -50,6 +50,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                 if (email.status === 450) {
                     alert("Not sure what you're trying to accomplish here... This is just a portfolio website.")
                 }
+                setLoading(false)
             })}>
 
                 {/* Name Input */}
@@ -140,7 +141,7 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                     </p>
                 </div>
 
-                <button className={`z-30 w-4/6 max-w-2xl h-10 rounded-sm mb-16 text-myGrey hover:text-myBlue border border-myBrown transition-colors font-extrabold bg-white md:mb-20 hover:border-white hover:bg-myBrown hover:border-2`} disabled={loading} type="submit">Submit</button>
+                <button className={`z-30 w-4/6 max-w-2xl h-10 rounded-sm mb-16 border  transition-colors font-extrabold  md:mb-20 ${loading ? "text-black border-slate-400 bg-myGrey" : "text-myGrey border-myBrown bg-white" } ${loading ? null :"hover:text-myBlue hover:bg-myBrown hover:border-white hover:border-2"}`} disabled={loading} type="submit">Submit</button>
             </form>
         </section>
     )
