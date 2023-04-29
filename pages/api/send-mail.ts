@@ -8,7 +8,7 @@ type MailRes = {
   message: string
 }
 
-export default function handler( req: NextApiRequest, res: NextApiResponse<MailRes> ) {
+export default async function handler( req: NextApiRequest, res: NextApiResponse<MailRes> ) {
 
   const transporter = nodemailer.createTransport({
     service: "hotmail",
@@ -30,7 +30,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<MailR
 
   if(req.method === "POST") {
     try {
-      transporter.sendMail(options);
+      await transporter.sendMail(options);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
