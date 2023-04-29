@@ -11,7 +11,8 @@ type MailRes = {
 export default async function handler( req: NextApiRequest, res: NextApiResponse<MailRes> ) {
 
   const transporter = nodemailer.createTransport({
-    service: "hotmail",
+    host: "smtp.office365.com",
+    port: 587,
     auth: {
       user: process.env.OUTLOOK_EMAIL,
       pass: process.env.OUTLOOK_PASSWORD
@@ -52,4 +53,6 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
   //     })
   //   })
   // }
+  
 }
+
