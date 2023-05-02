@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function MetaTags({ title, description, pageUrl, imgUrl="/static/assets/logo.jpg", keywords="" }: { title: string, pageUrl: string, description: string, imgUrl: string, keywords?: string }) {
+export default function MetaTags({ title, description, pageUrl, imgUrl="/static/assets/logo.jpg", keywords="developer, engineer, software engineer, front end developer, react, react developer, nextjs, next, nextjs developer, next js developer, UI, UX, UI/UX, UI/UX Engineer" }: { title: string, pageUrl: string, description: string, imgUrl: string, keywords?: string }) {
     return (
         <Head>
             {/* <!-- Primary Meta Tags --> */}
