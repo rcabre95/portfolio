@@ -3,6 +3,7 @@ import { sendEmail } from '@/lib/send-email';
 import { Dispatch, SetStateAction, useEffect, useState, useRef } from 'react';
 import { forwardRef } from 'react';
 import { Section } from "@/pages";
+import Loader from './shared-ui/Loader';
 
 export type FormData = {
     name: string;
@@ -141,7 +142,11 @@ export const Contact = forwardRef(({ setSection }: { setSection: Dispatch<SetSta
                     </p>
                 </div>
 
-                <button className={`z-30 w-4/6 max-w-2xl h-10 rounded-sm mb-16 border  transition-colors font-extrabold  md:mb-20 ${loading ? "text-black border-slate-400 bg-myGrey" : "text-myGrey border-myBrown bg-white" } ${loading ? null :"hover:text-myBlue hover:bg-myBrown hover:border-white hover:border-2"}`} disabled={loading} type="submit">Submit</button>
+                <button className={`z-30 w-4/6 flex justify-center items-center max-w-2xl h-10 rounded-sm mb-16 border  transition-colors font-extrabold  md:mb-20 ${loading ? "text-black border-slate-400 bg-myGrey" : "text-myGrey border-myBrown bg-white" } ${loading ? null :"hover:text-myBlue hover:bg-myBrown hover:border-white hover:border-2"}`}
+                disabled={loading} 
+                type="submit">
+                    {loading ? <Loader /> : "Submit"}
+                </button>
             </form>
         </section>
     )
