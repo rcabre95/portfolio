@@ -20,6 +20,7 @@ export default function Home() {
 
   return (
     <main ref={homeRef} className={`h-fit w-screen relative`} >
+      <MetaTags title="Raphael Cabrera" description="Raphael's developer portfolio" pageUrl={process.env.NEXT_PUBLIC_HOME_URL!} imgUrl="/static/assets/logo.png"/>
       <div className={`z-10 fixed h-full w-full inset-0 overflow-hidden`}>
                 <div className="relative h-full w-full">
 
@@ -48,7 +49,6 @@ const MainContent = forwardRef(({ section, homeRef, setSection }: { section: str
 
   return (
     <div ref={ref} className={`h-fit relative`}>
-      <MetaTags title="Raphael Cabrera" description="Raphael's developer portfolio" pageUrl={process.env.NEXT_PUBLIC_HOME_URL!} imgUrl="/static/assets/logo.png"/>
       <Header section={section} homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef} />
       <About setSection={setSection} ref={aboutRef} />
       <Projects setSection={setSection} ref={projectsRef} />
