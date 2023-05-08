@@ -9,7 +9,7 @@ export interface IProject {
     description: string;
 }
 
-export default function Project({ project, idx }: { project: IProject, idx: number }) {
+export default function Project({ project }: { project: IProject }) {
     const { title, link, gitLink, image, description } = project;
 
     return (
@@ -21,7 +21,7 @@ export default function Project({ project, idx }: { project: IProject, idx: numb
             </div>
             <div className={`flex flex-col w-full h-1/3`}>
                 <div className={`w-full h-fit flex justify-center items-center`}>
-                    <h5 className={`text-xl font-light text-white`}>{title}</h5>
+                    <h5 className={`text-xl`}>{title}</h5>
                     {/* <p className={`hidden text-sm md:block`}>{description}</p> */}
                 </div>
                 <div className={`flex flex-row w-full md:w-full justify-around items-center h-16 `}>
