@@ -14,7 +14,9 @@ export default function Footer() {
             </div>
             <div className={`z-30 flex flex-col justify-center items-center text-myBlue`}>
                 <p className="z-30 text-sm">Raphael Cabrera &copy; 2023</p>
-                <p className="z-30 text-xs font-extrabold">The sun is beamin&apos;</p>
+                <Link target="_blank" href="https://open.spotify.com/album/1GG6U2SSJPHO6XsFiBzxYv?si=mCs6yjH4QpqGfkqiCdovoQ">
+                    <p className="z-30 text-xs font-extrabold hover:underline">The sun is beamin&apos;</p>
+                </Link>
             </div>
             
         </footer>
