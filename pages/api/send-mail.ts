@@ -26,7 +26,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
     text: req.body.message,
     html: `<h4>${req.body.name} says:</h4>
           <p>${req.body.message}</p>
-          <p>If you wish to reply, please reply to ${req.body.email}`
+          <p>If you wish to reply, please reply to ${req.body.email}</p>`
   }
 
   if(req.method === "POST") {
