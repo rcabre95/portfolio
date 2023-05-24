@@ -6,6 +6,7 @@ const myProjects: Array<IProject> = [
     { title: "Leslie's Accounting Services", link: "https://accountant-site.vercel.app/", gitLink: "https://github.com/rcabre95/accountant-business-site", image: "las.png", description: "nunc id cursus metus aliquam eleifend mi in nulla posuere" },
     { title: "Firebase Blog App", link: "https://firebase-app-seven.vercel.app/", gitLink: "https://github.com/rcabre95/firebase-app/", image: "firebase_app.png", description: "nunc id cursus metus aliquam eleifend mi in nulla posuere" },
     { title: "10 Cats", link: "https://10-cats.vercel.app/", gitLink: "https://github.com/rcabre95/image-carousel/", image: "10_cats.png", description: "nunc id cursus metus aliquam eleifend mi in nulla posuere" },
+    { title: "Furry Friend Finder", link: "https://furry-friend-finder.vercel.app", gitLink: "https://github.com/rcabre95/dog-finder", image: "dog_finder.png", description: "nunc id cursus metus aliquam eleifend mi in nulla posuere" },
     { title: "Hashtables", link: "", gitLink: "https://github.com/rcabre95/hashtables", image: "hashtables.png", description: "nunc id cursus metus aliquam eleifend mi in nulla posuere" }
 ] 
 
