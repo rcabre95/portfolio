@@ -22,6 +22,17 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Environment Variables
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_HOME_URL` | Base URL used for meta tags and the contact form's API call |
+| `OUTLOOK_EMAIL` / `OUTLOOK_PASSWORD` | SMTP credentials the contact form sends from |
+| `GMAIL_EMAIL` | Address contact form submissions are delivered to |
+| `NEXT_PUBLIC_SHOW_STALE_NOTICE` | Set to `false` to hide the "this site is out of date" banner. Any other value (including unset) shows it. |
+
+`NEXT_PUBLIC_*` variables are inlined at build time, so changing `NEXT_PUBLIC_SHOW_STALE_NOTICE` in Vercel requires a redeploy to take effect.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

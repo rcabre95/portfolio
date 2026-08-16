@@ -6,6 +6,7 @@ import { Projects } from "@/components/Projects"
 import { Contact } from "@/components/Contact"
 import ToTopButton from "@/components/ToTopButton"
 import Footer from "@/components/Footer"
+import StaleNotice from "@/components/StaleNotice"
 import MetaTags from "@/components/shared-ui/MetaTags"
 import { useRef, useState, forwardRef, ForwardedRef, Dispatch, SetStateAction } from "react"
 
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <main ref={homeRef} className={`h-fit w-screen relative`} >
       <MetaTags title="Raphael Cabrera" description="Raphael's developer portfolio" pageUrl={process.env.NEXT_PUBLIC_HOME_URL!} imgUrl="/static/assets/logo.png"/>
+      <StaleNotice />
       <div className={`z-10 fixed h-full w-full inset-0 overflow-hidden`}>
                 <div className="relative h-full w-full">
 

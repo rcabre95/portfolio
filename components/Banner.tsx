@@ -12,7 +12,7 @@ export default function Banner({ aboutRef, setSection }: { aboutRef: any, setSec
     useEffect(() => {
         const observer = new IntersectionObserver(() => {
             setSection("home")
-        }, { threshold: 1 })
+        }, { threshold: 0.9 })
         observer.observe(bannerRef.current!)
 
         return () => { observer.disconnect() }
